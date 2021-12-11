@@ -1,0 +1,32 @@
+// ext는 build.gradle에서 사용하는 전역변수를 설정하겟다라는 의미
+//
+
+buildscript {
+    ext{
+        springBootVersion = '2.1.9.RELEASE'
+    }
+    repositories{
+        mavenCentral()
+        jcenter()
+    }
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+// 위에 의존성을 어디에 적용할것인지
+apply plugin : 'java'
+apply plugin : 'eclipse'
+apply plugin : 'org.springframework.boot'
+apply plugin : 'io.spring.dependency-management'
+
+// 각종 의존성들을 어떤 원격 저장소에서 받을지 정합니다.
+repositories {
+    mavenCentral()
+    jcenter()
+}
+// 버전을 명시하지 않는것이 위쪽에서 버전관리를 해주기때문이다
+dependencies{
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+}
