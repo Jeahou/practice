@@ -26,6 +26,8 @@ repositories {
 }
 // 버전을 명시하지 않는것이 위쪽에서 버전관리를 해주기때문이다
 dependencies{
+    compile('mysql:mysql-connector-java')
+    compile('org.springframework.boot:spring-boot-starter-data-jap')
     //그래들 5이상부터는 롬북 설정변경
     compileOnly('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')

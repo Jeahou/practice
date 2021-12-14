@@ -11,10 +11,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.is;
 
+//테스트를 진행할 때 junit에 내장된 실행자외에 다른 실행자를 실행시키는 부분
+// springrunner라는 스프링실행자를 사용
 @RunWith(SpringRunner.class)
+//여러 스프링 어노테이션 중 web에 집중할수 있는 어노테이션
+// 선언할경우 controller, controlleradvice 등을 사용가능 service component repository 사용 불가
 @WebMvcTest(controllers = HelloController.class)
 public class HelloControllerTest {
-
+    // 웹 api를 테스트할 때 사용합니다.
+    // 스프링 mvc테스트의 시작점
     @Autowired
     private MockMvc mvc;
 
